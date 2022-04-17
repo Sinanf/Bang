@@ -2,19 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
+
     //starting time = bang
-    float startingTime = 0;
+    
     float pressedTime = 0;
     float speed = 0;
+
+    public TMP_Text speedText;
+
+    public CountdownController countdownController;    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -36,8 +42,10 @@ public class Player : MonoBehaviour
 
     public void ShootTime()
     {
-        speed = pressedTime - startingTime;
+        float bangTime = countdownController.bangTime;
+        speed = Mathf.Round((pressedTime - bangTime) * 100f) *0.01f;        
         Debug.Log(speed);
+        speedText.text = "Speed: " + speed.ToString();
     }
 
     

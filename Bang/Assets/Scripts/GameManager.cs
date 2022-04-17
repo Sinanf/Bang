@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public Player player;
+    public Enemy enemy;
+
+
     // Start is called before the first frame update
     void Start()
     {
