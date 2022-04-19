@@ -10,6 +10,8 @@ public class CountdownController : MonoBehaviour
     public int countdownTime;
     public float bangTime = 0;
 
+    
+
     public TMP_Text countdownDisplay;
     public TMP_Text bangText;
 
@@ -43,9 +45,10 @@ public class CountdownController : MonoBehaviour
         {
             
             yield return new WaitForSeconds(Random.Range(0.1f, 5f));
-            bangTime = Time.time;
+            
             bangText.gameObject.SetActive(true);
             bangText.text = "Bang";
+            bangTime = Time.time;
             yield return new WaitForSeconds(1f);
             bangText.gameObject.SetActive(false);
 
